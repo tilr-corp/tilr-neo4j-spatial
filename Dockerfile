@@ -1,4 +1,4 @@
-FROM neo4j:2.3.4
+FROM neo4j:2.3.1
 MAINTAINER Tilr Corp
 
 ENV PLUGIN_URL https://github.com/neo4j-contrib/m2/blob/master/releases/org/neo4j/neo4j-spatial/0.15.2-neo4j-2.3.4/neo4j-spatial-0.15.2-neo4j-2.3.4-server-plugin.zip?raw=true
