@@ -1,4 +1,4 @@
-FROM neo4j:2.3.1
+FROM neo4j:2.3.4
 MAINTAINER Tilr Corp
 
 ENV PLUGIN_URL https://github.com/neo4j-contrib/m2/blob/master/releases/org/neo4j/neo4j-spatial/0.15.2-neo4j-2.3.4/neo4j-spatial-0.15.2-neo4j-2.3.4-server-plugin.zip?raw=true
@@ -16,10 +16,11 @@ RUN sed -i "s|#node_keys_indexable|node_keys_indexable|g" /var/lib/neo4j/conf/ne
 
 WORKDIR /var/lib/neo4j
 
-RUN mv data /data \
-    && ln --symbolic /data
-
+RUN mv data /data && ln --symbolic /data
 VOLUME /data
+
+COPY ssl/bundle.crt ssl/server.cert
+COPY ssl/tilr_private.key ssl/server.key
 
 EXPOSE 7474 7473
 CMD ["neo4j"]
