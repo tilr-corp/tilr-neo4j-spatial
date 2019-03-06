@@ -14,11 +14,11 @@ RUN unzip /var/lib/neo4j/plugins/$PLUGIN_FILE -d /var/lib/neo4j/plugins/
 RUN sed -i "s|#node_auto_indexing|node_auto_indexing|g" /var/lib/neo4j/conf/neo4j.properties
 RUN sed -i "s|#node_keys_indexable|node_keys_indexable|g" /var/lib/neo4j/conf/neo4j.properties
 
+COPY ./ssl/bundle.crt /ssl/server.cert
+COPY ./ssl/tilr_private.key /ssl/server.key
+
 WORKDIR /var/lib/neo4j
-
-RUN mv data /data \
-    && ln --symbolic /data
-
+RUN mv data /data && ln --symbolic /data
 VOLUME /data
 
 EXPOSE 7474 7473
