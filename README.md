@@ -1,4 +1,4 @@
-# Installing Neo4j with Docker
+# Installing Neo4j 2.3.4 with Docker 
 
 ## dev:
 docker run --name neo4j-server-dev -p 7473:7473 -p 7474:7474 -v $HOME/neo4j/data:/data -e NEO4J_AUTH=neo4j/dbsdevpassword  --restart unless-stopped -d tilr/tilr-neo4j-spatial:2.3.4
