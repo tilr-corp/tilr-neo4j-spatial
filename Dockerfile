@@ -14,5 +14,5 @@ MAINTAINER Tilr Corp
 # RUN sed -i "s|#node_auto_indexing|node_auto_indexing|g" /var/lib/neo4j/conf/neo4j.properties
 # RUN sed -i "s|#node_keys_indexable|node_keys_indexable|g" /var/lib/neo4j/conf/neo4j.properties
 
-COPY ./ssl/bundle.crt /ssl/server.cert
-COPY ./ssl/tilr_private.key /ssl/server.key
+COPY ./ssl/bundle.crt /ssl/neo4j.cert
+COPY ./ssl/tilr_private.key /ssl/neo4j.key
