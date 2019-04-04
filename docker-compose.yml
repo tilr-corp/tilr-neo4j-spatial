@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  webapp:
+    restart: unless-stopped
+    image: tilr/tilr-neo4j-ssl:3.5.3-enterprise
+    environment:
+      - NEO4J_AUTH=neo4j/dbdevpassword
+      - NEO4J_ALLOW_STORE_UPGRADE=true
+      - NEO4J_CACHE_MEMORY=12288M
+      - NEO4J_HEAP_MEMORY=12288
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+    volumes:
+      - $HOME/neo4j/plugins:/plugins
+      - $HOME/neo4j/data:/data
+      - $HOME/neo4j/import:/import
+      - $HOME/neo4j/metrics:/metrics
+    ports:
+      - 7474:7474
+      - 7473:7473
+      - 7687:7687
+    ulimits:
+      nofile:
+        soft: "65536"
+        hard: "65536"
