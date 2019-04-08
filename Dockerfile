@@ -16,3 +16,5 @@ MAINTAINER Tilr Corp
 
 COPY ./ssl/bundle.crt /ssl/neo4j.cert
 COPY ./ssl/tilr_private.key /ssl/neo4j.key
+
+COPY ./conf/neo4j.conf /conf/neo4j.conf
