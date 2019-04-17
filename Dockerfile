@@ -1,13 +1,12 @@
-FROM neo4j:3.5.3
+FROM neo4j:3.5.1
 MAINTAINER Tilr Corp
 
-# ENV PLUGIN_URL https://github.com/neo4j-contrib/m2/blob/master/releases/org/neo4j/neo4j-spatial/0.15.2-neo4j-2.3.4/neo4j-spatial-0.15.2-neo4j-2.3.4-server-plugin.zip?raw=true
-# ENV PLUGIN_FILE neo4j-spatial-0.15.2-neo4j-2.3.4-server-plugin.zip
-#
-# WORKDIR /tmp
-# RUN wget -q  $PLUGIN_URL -O $PLUGIN_FILE
-# RUN mv $PLUGIN_FILE /var/lib/neo4j/plugins/
-# RUN unzip /var/lib/neo4j/plugins/$PLUGIN_FILE -d /var/lib/neo4j/plugins/
+ENV PLUGIN_URL https://github.com/neo4j-contrib/m2/blob/master/releases/org/neo4j/neo4j-spatial/0.26.2-neo4j-3.5.2/neo4j-spatial-0.26.2-neo4j-3.5.2-server-plugin.jar?raw=true
+ENV PLUGIN_FILE neo4j-spatial-0.26.2-neo4j-3.5.2-server-plugin.jar
+
+WORKDIR /plugins
+RUN wget -q  $PLUGIN_URL -O $PLUGIN_FILE
+# COPY $PLUGIN_FILE plugins/neo4j-spatial.jar
 
 ## turn on indexing: http://chrislarson.me/blog/install-neo4j-graph-database-ubuntu
 ## enable neo4j indexing, and set indexable keys to name,age

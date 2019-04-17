@@ -3,7 +3,7 @@ version: '3'
 services:
   webapp:
     restart: unless-stopped
-    image: tilr/tilr-neo4j-ssl:3.5.3
+    image: tilr/tilr-neo4j-ssl:3.5.1
     environment:
       - NEO4J_AUTH=neo4j/dbdevpassword
       - NEO4J_ALLOW_STORE_UPGRADE=true
